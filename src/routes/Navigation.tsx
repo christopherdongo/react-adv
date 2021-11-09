@@ -9,7 +9,7 @@ import {
 
 import logo from '../logo.svg';
 
-import {routes} from '../01-lazyload/routes/routes'
+import {routes} from './routes'
 
 
 export const Navigation = () => {
