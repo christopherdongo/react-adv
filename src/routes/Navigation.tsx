@@ -9,7 +9,7 @@ import {
 
 import logo from '../logo.svg';
 
-import {routes} from '../01-lazyload/routes/routes'
+import {routes} from './routes'
 
 
 export const Navigation = () => {
@@ -24,7 +24,7 @@ export const Navigation = () => {
             {
               routes.map(({path,name}) =>(
                 <li key={path}>
-                <NavLink to={path} activeClassName="nav-active" exact>{name}</NavLink>
+                <NavLink to={path} activeClassName="nav-active" >{name}</NavLink>
               </li>
               ))
             }
