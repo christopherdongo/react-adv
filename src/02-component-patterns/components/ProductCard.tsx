@@ -2,11 +2,11 @@
 import { useProducts } from "../hooks/useProducts";
 import {createContext, ReactElement} from 'react'
 import styles from "../styles/styles.module.css";
-import {ProductContextProps} from '../interfaces/interfaces';
-
+import { ProductContextProps, onChangeArgs } from '../interfaces/interfaces';
 
 /*creact contexto*/
 export const ProductContext = createContext({} as ProductContextProps);
+
 
 export interface Props{
   id: string;
@@ -15,11 +15,14 @@ export interface Props{
   children?:ReactElement | ReactElement[];
   className?: string;
   style?:React.CSSProperties;
-  
+  onChange?:(product:onChangeArgs)=>void,
+  value?:number,
 }
 
-export const ProductCard = ({ id, title, img,children, className,style }: Props) => {
-  const { counter, sumProduct } = useProducts();
+
+export const ProductCard = ({ id, title, img,children, className,style, onChange,value }:Props)  => {
+  const product = {id,title,img};
+  const { counter, sumProduct } = useProducts({onChange,product,value});
 
   return (
       <ProductContext.Provider
@@ -28,7 +31,7 @@ export const ProductCard = ({ id, title, img,children, className,style }: Props)
           sumProduct,
           id,
           title,
-          img
+          img,
       }}
       >
       <div className={ `${styles.productCard} ${className}`}

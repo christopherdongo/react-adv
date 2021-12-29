@@ -11,6 +11,7 @@ export const ProductButtons = ({className,style}:Props) => {
 
     const { sumProduct,counter} = useContext(ProductContext);
 
+
   return (
     <div className={`${styles.buttonsContainer} ${className}`}
     style={style}
