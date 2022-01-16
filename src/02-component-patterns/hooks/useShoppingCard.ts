@@ -11,53 +11,27 @@ export const useShoppingCard = () => {
      
      setShoppingCart( olstate => {
   
-      const productInCart:ProductInCart = olstate[product.id] || {...product, count:0}
-  
-      if(Math.max(productInCart.count + count, 0)){
-         productInCart.count +=count;
-         return {
-          ...olstate,
-          //[product.id]: {...product, count}
-          [product.id]: productInCart
-        }
-      }
-  
-        //const arr = delete olstate.[product.id]
-        //const {[product.id]:old, ...rest} = olstate;
-        // const er = delete olstate[product.id];
-        const res = Object.keys(olstate).reduce( (prev:any, next:any) => {
-          if(next===product.id) return prev
-          return{
-            ...prev,
-            [next]:olstate[next]
-          }
-          
-        },{});
-         return res  
-      
-  
-  
-      /*
       if(count===0){
         //const arr = delete olstate.[product.id]
         //const {[product.id]:old, ...rest} = olstate;
         // const er = delete olstate[product.id];
-        const res = Object.keys(olstate).reduce( (prev:any, next:any) => {
+        /*const res = Object.keys(olstate).reduce( (prev:any, next:any) => {
           if(next===product.id) return prev
           return{
             ...prev,
             [next]:olstate[next]
           }
           
-        },{});
-         return res  
-      }*/
+        },{});*/
+       const { [product.id]:toDelete, ...rest} = olstate;
+       return rest; 
+      }
   
-         /* return {
+          return {
             ...olstate,
-            //[product.id]: {...product, count}
-            [product.id]: productInCart;
-          }*/
+            [product.id]: {...product, count}
+            
+          }
      }
      
      )

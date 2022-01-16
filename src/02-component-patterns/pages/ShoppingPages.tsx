@@ -62,23 +62,6 @@ export const ShoppingPages = () => {
               })
             }     
       </div>
-
-      {
-        /*
-                  <ProductCard {...product} className="bg-dark" 
-      style={{width:'100px'}}
-      >
-            <ProductImage
-              className="custom-image"
-              style={{
-                boxShadow: "10px 10px 10px 10px rgba(0,0,0,0.2)"
-              }}
-            />
-
-            <ProductButtons className="custom-buttons" style={{display:'flex', justifyContent: 'center',}} />
-          </ProductCard>     
-        */
-      }
     </div>
   );
 };
